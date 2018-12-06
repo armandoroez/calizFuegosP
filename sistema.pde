@@ -5,16 +5,16 @@ class Firework {
 
   ArrayList<Particle> particles;    // An arraylist for all the particles
   Particle firework;
-  float hu;
+  float hue;
 
   Firework() {
-    hu = random(255); //cambio de color
-    firework = new Particle(mouseX, height, hu); //posición inicial
+    hue = random(255); //cambio de color
+    firework = new Particle(mouseX, height-50, hue); //posición inicial
     particles = new ArrayList<Particle>();   // Initialize the arraylist
   }
-  
+
   boolean done() {
-    if (firework == null && particles.isEmpty()) {
+    if (firework == null && particles.isEmpty()) { ///?????
       return true;
     } else {
       return false;
@@ -23,24 +23,24 @@ class Firework {
 
   void run() {
     if (firework != null) {
-      fill(hu,255,255);
-      firework.applyForce(gravity);
-      firework.update();
+      fill(hue, 255, 255);
+      //firework.applyForce(gravity);
+      firework.actualizacion();
       firework.display();
 
-      if (firework.explode()) { //Numero de particulas en explosion
+      if (firework.explotar()) { //Numero de particulas en explosion
         for (int i = 0; i < 50; i++) {
-          particles.add(new Particle(firework.posicion, hu));    
+          particles.add(new Particle(firework.posicion, hue));
         }
-        firework = null;
+        firework = null; //despues de explotar las particulas se deshechan
       }
     }
 
-    for (int i = particles.size()-1; i >= 0; i--) { 
+    for (int i = particles.size()-1; i >= 0; i--) {  //estallido
       Particle p = particles.get(i);
-      p.applyForce(gravity);
+      // p.applyForce(gravity);
       p.run();
-      if (p.isDead()) {
+      if (p.quitar()) {                              //remover
         particles.remove(i);
       }
     }
@@ -48,11 +48,11 @@ class Firework {
 
 
   // A method to test if the particle system still has particles
-/*boolean dead() {
-    if (particles.isEmpty()) {
-      return true;
-    } else {
-      return false;
-    }
-  }*/
+  /*boolean dead() {
+   if (particles.isEmpty()) {
+   return true;
+   } else {
+   return false;
+   }
+   }*/
 }

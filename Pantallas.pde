@@ -91,7 +91,7 @@ void fuegosPerrones() {
 
 
 
-  if (random(1) < 0.08) {
+  if (random(2) < 0.08) {
     fireworks.add(new Firework());
   }
   fill(0, 50);
