@@ -8,8 +8,8 @@ class Firework {
   float hu;
 
   Firework() {
-    hu = random(255); //Color
-    firework = new Particle(mouseX, height, hu);
+    hu = random(255); //cambio de color
+    firework = new Particle(mouseX, height, hu); //posición inicial
     particles = new ArrayList<Particle>();   // Initialize the arraylist
   }
   
@@ -29,7 +29,7 @@ class Firework {
       firework.display();
 
       if (firework.explode()) { //Numero de particulas en explosion
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 50; i++) {
           particles.add(new Particle(firework.posicion, hu));    
         }
         firework = null;
@@ -48,11 +48,11 @@ class Firework {
 
 
   // A method to test if the particle system still has particles
-  boolean dead() {
+/*boolean dead() {
     if (particles.isEmpty()) {
       return true;
     } else {
       return false;
     }
-  }
+  }*/
 }

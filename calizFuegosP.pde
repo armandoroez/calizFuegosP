@@ -1,7 +1,7 @@
 
 ArrayList<Firework> fireworks;
 int opcion = 0;
-PVector gravity = new PVector(0, 0.15);
+PVector gravity = new PVector(0, 0.2);
    int cuadro = 240;
    int cuadro2 = 245;
 void setup(){
@@ -31,7 +31,6 @@ fuegosPerrones();
 break;
 
 case 2:
-pantalla3();
 break;
 }
   

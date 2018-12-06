@@ -31,8 +31,9 @@ void pantalla1() {
     cuadro = 255;
   }
 
-  if (mousePressed && mouseX < 500 && mouseX>200 && mouseY < 400 && mouseY>300) {
+  if (mousePressed==true && mouseX < 500 && mouseX>200 && mouseY < 400 && mouseY>300) {
     opcion = 1;
+    
   }
 
   if (mouseX < 500 && mouseX>200 && mouseY < 480 && mouseY>420) {
@@ -41,41 +42,47 @@ void pantalla1() {
     cuadro2 = 240;
   }
 
-  if (mousePressed && mouseX < 500 && mouseX>200 && mouseY < 480 && mouseY>420) {
+  if (mousePressed==true && mouseX < 500 && mouseX>200 && mouseY < 480 && mouseY>420) {
     opcion = 2;
+   
   }
 }
 
 
 //Pantalla 2
 void fuegosPerrones() {
-  int fondo = 0;
+ 
+  /*int fondo = 0;
   pushMatrix();
   imageMode(CORNER);
-  switch(fondo){
+ switch(fondo){
   case 0:
   PImage fondo1;
-  fondo1 = loadImage ("fondo1.1.png");
+  fondo1 = loadImage ("fondo1.2.png");
 
   image(fondo1, 0,0);
   break;
   case 1:
+  PImage fondo2;
+  fondo2 = loadImage ("fondo2.jpg");
+
+  image(fondo2, 0,0);
   break;
   case 2:
   break;
   }
-  popMatrix();
+  popMatrix();*/
 
   textSize(15);
   text("Para volver al menu presiona 'M'", 10, 20); 
   if (key == 'm' || key == 'M') {
     opcion = 0;
-    keyPressed = false;
+    key = 'v';
   }
 
 
   pushMatrix();
-   tint(255, 255);
+  // tint(255, 255);
   PImage panda;
   panda = loadImage ("pandasolo.png");
   imageMode(CENTER);
@@ -87,10 +94,10 @@ void fuegosPerrones() {
   if (random(1) < 0.08) {
     fireworks.add(new Firework());
   }
-  //fill(0, 50);
-  //noStroke();
-  //rect(0, 0, width+width, height+height);
-  //background(255, 20);
+  fill(0, 50);
+  noStroke();
+  rect(0, 0, width+width, height+height);
+ // background(255, 20);
 
 
   for (int i = fireworks.size()-1; i >= 0; i--) {
@@ -103,7 +110,7 @@ void fuegosPerrones() {
 
   pushMatrix();
   PImage canon;
-  canon = loadImage ("cañon.png");
+  canon = loadImage ("cañon2.png");
   imageMode(CENTER);
   image(canon, mouseX, height-80);
   popMatrix();
@@ -118,5 +125,6 @@ void pantalla3() {
 
   if (key== 'a' || key=='A') {
     opcion=0;
+    key= 'v';
   }
 }

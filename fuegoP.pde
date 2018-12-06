@@ -62,11 +62,12 @@ class Particle {
   void display() {
     stroke(hu, 255, 255, duracion);
     if (seed) {
-      strokeWeight(4);
+      strokeWeight(10);
     } else {
-      strokeWeight(2);
+      strokeWeight(7);
     }
-    point(posicion.x, posicion.y);
+    fill(hu, 255,255,duracion);
+    ellipse(posicion.x, posicion.y,1,1);
     
   }
 
